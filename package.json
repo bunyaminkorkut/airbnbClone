@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "concurrently \"next dev\" \"tailwindcss --input ./app/globals.css --output ./app/output.css --watch\"",
     "dev:tailwind": "concurrently \"next dev --turbo\" \"npm run tailwind -- --watch\"",
-    "build": "next build",
+    "build": "tailwindcss ./app/globals.css --output ./app/output.css && next build",
     "start": "next start",
     "lint": "next lint",
     "tailwind": "tailwindcss -i styles/globals.css -o styles/dist.css",
@@ -17,11 +17,13 @@
     "singleQuote": true
   },
   "dependencies": {
+    "@nextui-org/react": "1.0.0-beta.10",
     "clsx": "1.2.1",
     "concurrently": "7.5.0",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "4.6.0",
     "styled-components": "6.0.0-beta.2",
     "styled-jsx": "5.1.0",
     "use-count-up": "3.0.1"
@@ -30,13 +32,13 @@
     "@types/node": "18.0.3",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
-    "autoprefixer": "^10.4.7",
+    "autoprefixer": "10.4.13",
     "eslint": "8.19.0",
     "eslint-config-next": "latest",
-    "postcss": "^8.4.14",
+    "postcss": "8.4.19",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.12",
-    "tailwindcss": "^3.1.6",
+    "tailwindcss": "3.2.4",
     "typescript": "4.7.4"
   }
 }
