@@ -1,29 +1,15 @@
-import Image from 'next/image';
 import '../styles/globals.css'
 import '../styles/photo-card.css'
-
+import AirbnbCard from './card';
 
 
 
 export async function Photo() {
   const photos = await getPhotos();
-
   return (
-    <div>
-      <div className='mx-4' >
-        <div className='grid gap-4 grid-cols-4'>
-          {photos.photos.map(photo => (
-            <div
-              key={photo.id}
-              className='card'
-            >
-              <img src={photo.src.tiny} className='m-0' />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    photos.photos.map(photo => (<AirbnbCard photoLink={photo.src.tiny} key={photo.id} location='Turkey' duration='1-5 December' addedTime='1 month ago' price='500$' />))
   )
+
 }
 
 
