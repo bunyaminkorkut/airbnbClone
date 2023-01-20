@@ -1,15 +1,7 @@
-export default async function deneme(){
-    const data = await getData();
+export default function deneme(){
     return(
         <div>
-            {data.SELAM}
+            deneme
         </div>
     )
 }
-
-async function getData() {
-    const res = {SELAM:'DEMNEME'}
-  
-    return res
-  }
-  

@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes slide {
+    0% {
+      transform: translateY(1000%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 100;
+    }
+  }
+  
+  .slider {  
+    animation: 0.5s ease 0s 1 slide;
+  }
