@@ -35,10 +35,10 @@ export function PhotoCarousel({ image }) {
         </div>
       </div>
       <div style={{transform: `translate(-${swap}px)`}} className={'flex transition duration-300 absolute'+`-translate-x-[${swap}px]`}>
-        <img className='' src={'https://picsum.photos/280/200.jpg'} />
-        <img src={'https://picsum.photos/280/200.jpg'} />
-        <img src={'https://picsum.photos/280/200.jpg'} />
-        <img src={'https://picsum.photos/280/200.jpg'} />
+        <img src={image} />
+        <img src={image} />
+        <img src={image} />
+        <img src={image} />
       </div>
     </div>
   );

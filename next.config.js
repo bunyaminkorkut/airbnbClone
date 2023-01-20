@@ -1,22 +1,10 @@
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-}
-
-module.exports = nextConfig
-
-const plugins = [withTM];
-
-module.exports = (_phase, { defaultConfig }) => {
-  return plugins.reduce(
-    (acc, plugin) => {
-      if (Array.isArray(plugin)) {
-        return plugin[0](acc, plugin[1]);
-      }
-      return plugin(acc);
-    },
-    { ...nextConfig }
-  );
+  reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
+  experimental: {
+    // Required:
+    appDir: true,
+  },
 };
+
+module.exports = nextConfig;
