@@ -1,5 +1,6 @@
 {
   "private": true,
+  "homepage": "https://bunyaminkorkut.github.io",
   "scripts": {
     "dev": "concurrently \"next dev\" \"tailwindcss --input ./app/globals.css --output ./app/output.css --watch\"",
     "dev:tailwind": "concurrently \"next dev --turbo\" \"npm run tailwind -- --watch\"",
@@ -8,7 +9,9 @@
     "lint": "next lint",
     "tailwind": "tailwindcss -i styles/globals.css -o styles/dist.css",
     "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
-    "postinstall": "npm run tailwind"
+    "postinstall": "npm run tailwind",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "prettier": {
     "arrowParens": "always",
@@ -25,6 +28,7 @@
     "clsx": "1.2.1",
     "concurrently": "7.5.0",
     "firebase": "9.15.0",
+    "gh-pages": "5.0.0",
     "next": "latest",
     "react": "18.2.0",
     "react-card-carousel": "1.1.3",
