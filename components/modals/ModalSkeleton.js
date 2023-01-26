@@ -13,7 +13,7 @@ const ModalSkeleton = ({ show, outsideClick, children, bgClass, modalStyle, slid
         onClick={e => e.stopPropagation()}
         style={modalStyle}
         className={
-          "absolute max-h-[85vh] overflow-y-auto sm:w-136 max-w-full rounded-2xl py-3 sm:py-6 m-auto top-32 inset-x-2 " +
+          "absolute max-h-[85vh] sm:w-136 max-w-full rounded-2xl py-3 sm:py-6 m-auto top-32 inset-x-2 " +
           (bgClass ? bgClass : " bg-hudson ")+ (slider ? ' slider ':'')
         }
       >

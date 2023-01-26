@@ -1,8 +1,8 @@
 export const Columns = ({ range }) => {
   const COLS = [0, 0, 1, 0, 2, 1, 0, 2, 4, 4, 6, 4, 2, 6, 6, 8, 6, 8, 8, 12, 8, 12, 6, 4, 2, 6, 6, 8, 6, 8, 8, 12, 12, 6, 4, 2, 6, 6, 8, 6, 8, 8, 12, 8, 12, 8, 16, 12, 16, 16, 12, 12, 8, 6, 12, 4, 8, 6, 4, 2, 2, 4, 1, 0]
 
-  let min=Math.floor(COLS.length/100*range[0])
-  let max=Math.floor(COLS.length/100*range[1])
+  let min=Math.floor(COLS.length/100*(range[0]/100))
+  let max=Math.floor(COLS.length/100*(range[1]/100))
   return (
     <div className="flex w-full justify-items-stretch justify-between items-end absolute gap-[0.5px]">
       {

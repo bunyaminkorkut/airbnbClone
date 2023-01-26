@@ -57,7 +57,7 @@ AirbnbThumbComponent.propTypes = {
 export default function SliderBar({onChange, value}) {
   return (
     <AirbnbSlider
-      onChange={(e)=>{onChange(e.target.value);}}
+      onChange={(e)=>{onChange([e.target.value[0]*100,e.target.value[1]*100]);}}
       slots={{ thumb: AirbnbThumbComponent }}
       getAriaLabel={(index) => (index === 0 ? 'Minimum price' : 'Maximum price')}
       defaultValue={[0, 100]}

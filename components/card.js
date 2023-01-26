@@ -7,12 +7,12 @@ export default function AirbnbCard(props) {
         <PhotoCarousel image={props.photoLink} />
       </div>
       <a href="#">
-        <h5 className="mb-2 pl-2 text-2xl font-bold tracking-tight text-gray-900">{props.location}</h5>
+        <h5 className="mb-2 pl-2 text-xl font-semibold tracking-tight text-gray-900">{props.location}</h5>
       </a>
       <div className="pl-3 felex">
         <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">{props.addedTime}</p>
         <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">{props.duration}</p>
-        <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">{props.price}</p>
+        <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">{props.price}&#x20BA;</p>
       </div>
     </div>
   )
