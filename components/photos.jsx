@@ -78,18 +78,21 @@ import AirbnbCard from "./card"
 
 export const Photos = () => {
   const setAllHouses = useFilterStore(state => state.setAllHouses)
-  const allHouses = useFilterStore().allHouses
+  const setHouseCount = useFilterStore(state => state.setHouseCount)
+  const houseCount = useFilterStore().houseCount
   const [photos, setPhotos] = useState([])
   const [allPhotos, setAllPhotos] = useState([])
+  const [huoseC, setHouseC] = useState(0)
   // const [filteredPhotos, setFilteredPhotos] = useState([])
   const setFilterList = useFilterStore(state => state.setFilterList)
   const filters = useFilterStore().filters
 
   useEffect(() => {
-    getPhotos().then(res => { setAllHouses(res); setPhotos(res); setAllPhotos(res) })
+    getPhotos().then(res => { setAllHouses(res); setPhotos(res); setAllPhotos(res);setHouseCount(res.length) })
+    
   }, [])
+  let filtered = []
   useEffect(() => {
-    let filtered = []
     allPhotos.map((photo) => {
       filterHomes({ photo, filters }).then((res) => {
         if (res) {
@@ -99,9 +102,13 @@ export const Photos = () => {
     })
     setPhotos(filtered)
   }, [filters])
+  
+  useEffect(()=>{
+    setHouseCount(photos.length)
+  },[photos])
   return (
-    <div className='grid md:w-[88%] xl:w-[90%] pt-48  place-items-center mx-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 sm:grid-cols-1 gap-6'>
-      {photos.map(photo => (<AirbnbCard photoLink={photo.src} key={photo.id} location='Turkey' duration='1-5 December' addedTime='1 month ago' price='500$' />))
+    <div className='grid md:w-[88%] xl:w-[90%] pt-48 mb-12  place-items-center mx-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 sm:grid-cols-1 gap-6'>
+      {photos.map(photo => (<AirbnbCard photoLink={photo.src} key={photo.id} location={photo.city+', '+photo.country} duration='1-5 December' addedTime='1 month ago' price={photo.price} />))
       }
     </div>
   )

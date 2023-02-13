@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "concurrently \"next dev\" \"tailwindcss --input ./app/globals.css --output ./app/output.css --watch\"",
     "dev:tailwind": "concurrently \"next dev --turbo\" \"npm run tailwind -- --watch\"",
-    "build":"tailwindcss ./app/globals.css --output ./app/output.css && next build",
+    "build":"tailwindcss ./styles/globals.css --output ./app/output.css && next build",
     "start": "next start",
     "lint": "next lint",
     "tailwind": "tailwindcss -i styles/globals.css -o styles/dist.css",

@@ -21,6 +21,7 @@ export const FilterModal = () => {
   const toggleFilterModal = useModalStore().toggleFilterModal
   const setFilterList = useFilterStore(state => state.setFilterList)
   const filters = useFilterStore().filters
+  const houseCount = useFilterStore().houseCount
 
   //////filters/////
   const [priceRange, setPriceRange] = useState([0, 10000])
@@ -259,19 +260,19 @@ export const FilterModal = () => {
             <div className="w-[90%] mx-auto my-6">
               <h2 className="text-2xl font-semibold">Yer tipi</h2>
               <div className=" text-[#707070] text-lg my-8 flex gap-4 text-black py-2 box-border"  >
-                <div onClick={() => { setTypeOfHome({ ...typeOfHome, home: !typeOfHome.home }) }} className={"border box-border hover:border-black flex flex-col hover:cursor-pointer text-black font-semibold justify-center items-start p-4 gap-6 text-3xl w-full rounded-xl active:scale-95 duration-300 " + (typeOfHome.home ? ' border-black border-2' : '')}>
+                <div onClick={() => { setTypeOfHome({ ...typeOfHome, home: !typeOfHome.home }) }} className={"border box-border hover:border-black flex flex-col hover:cursor-pointer text-black font-semibold justify-center items-start p-4 gap-6 text-3xl w-full rounded-xl active:scale-95 duration-300 " + (typeOfHome.home ? ' border-black bg-[#f3f3f3]  border-2' : '')}>
                   <BsHouseDoor />
                   <p className="text-sm">Ev</p>
                 </div>
-                <div onClick={() => { setTypeOfHome({ ...typeOfHome, apartment: !typeOfHome.apartment }) }} className={"border hover:border-black flex flex-col hover:cursor-pointer text-black font-semibold justify-center items-start p-4 gap-6 text-3xl w-full rounded-xl active:scale-95 duration-300 " + (typeOfHome.apartment ? ' border-black border-2' : '')}>
+                <div onClick={() => { setTypeOfHome({ ...typeOfHome, apartment: !typeOfHome.apartment }) }} className={"border hover:border-black flex flex-col hover:cursor-pointer text-black font-semibold justify-center items-start p-4 gap-6 text-3xl w-full rounded-xl active:scale-95 duration-300 " + (typeOfHome.apartment ? ' border-black bg-[#f3f3f3] border-2' : '')}>
                   <BsBuilding />
                   <p className="text-sm">Daire</p>
                 </div>
-                <div onClick={() => { setTypeOfHome({ ...typeOfHome, guest: !typeOfHome.guest }) }} className={"border hover:border-black flex flex-col hover:cursor-pointer text-black font-semibold justify-center items-start p-4 gap-6 text-3xl w-full rounded-xl active:scale-95 duration-300 " + (typeOfHome.guest ? ' border-black border-2' : '')}>
+                <div onClick={() => { setTypeOfHome({ ...typeOfHome, guest: !typeOfHome.guest }) }} className={"border hover:border-black flex flex-col hover:cursor-pointer text-black font-semibold justify-center items-start p-4 gap-6 text-3xl w-full rounded-xl active:scale-95 duration-300 " + (typeOfHome.guest ? ' border-black bg-[#f3f3f3] border-2' : '')}>
                   <FaWarehouse />
                   <p className="text-sm">Misafir Evi</p>
                 </div>
-                <div onClick={() => { setTypeOfHome({ ...typeOfHome, hotel: !typeOfHome.hotel }) }} className={"border hover:border-black flex flex-col hover:cursor-pointer text-black font-semibold justify-center items-start p-4 gap-6 text-3xl w-full rounded-xl active:scale-95 duration-300 " + (typeOfHome.hotel ? ' border-black border-2' : '')}>
+                <div onClick={() => { setTypeOfHome({ ...typeOfHome, hotel: !typeOfHome.hotel }) }} className={"border hover:border-black flex flex-col hover:cursor-pointer text-black font-semibold justify-center items-start p-4 gap-6 text-3xl w-full rounded-xl active:scale-95 duration-300 " + (typeOfHome.hotel ? ' border-black bg-[#f3f3f3]  border-2' : '')}>
                   <FaHotel />
                   <p className="text-sm">Otel</p>
                 </div>
@@ -336,7 +337,7 @@ export const FilterModal = () => {
               <div className="mt-6 text-black text-lg flex gap-4 text-black flex-col" >
                 <h3 className="font-semibold">Misafir girişı ve park yeri</h3>
                 <div className="grid grid-cols-2 text-[16px] text-[#707070]">
-                  <div className="cursor-pointer"  ><Checkbox color="default" checked={accessibility.steplessEnter ? 'checked' : ''} /> Basamaksız misafir girişi </div>
+                  <div className="cursor-pointer"  onClick={() => { setAccessibility({ ...accessibility, steplessEnter: !accessibility.steplessEnter }) }}  ><Checkbox color="default" checked={accessibility.steplessEnter ? 'checked' : ''} /> Basamaksız misafir girişi </div>
                   <div className="cursor-pointer" onClick={() => { setAccessibility({ ...accessibility, cm81: !accessibility.cm81 }) }}   ><Checkbox color="default" checked={accessibility.cm81 ? 'checked' : ''} /> 81 cm'den geniş misafir girişi </div>
                   <div className="cursor-pointer" onClick={() => { setAccessibility({ ...accessibility, disabledParking: !accessibility.disabledParking }) }}   ><Checkbox color="default" checked={accessibility.disabledParking ? 'checked' : ''} /> Engelli park yeri </div>
                   <div className="cursor-pointer" onClick={() => { setAccessibility({ ...accessibility, steplessWat: !accessibility.steplessWat }) }}   ><Checkbox color="default" checked={accessibility.steplessWat ? 'checked' : ''} /> Misafir girişine giden basamaksız yol</div>
@@ -386,7 +387,7 @@ export const FilterModal = () => {
         <div className="fixed bottom-0 font-semibold border-t relative align-center">
           <div className="h-full flex items-center justify-between w-[90%] mx-auto my-4">
             <button onClick={() => { deleteFilters() }} className="underline hover:bg-[#e0e0e0] px-4 py-2 rounded-lg ">Tümünü temizle</button>
-            <button className=" px-6 py-3 rounded-lg bg-[#222222] hover:bg-black text-white font-semibold ">evi goster</button>
+            <button className=" px-6 py-3 rounded-lg bg-[#222222] hover:bg-black text-white font-semibold ">{houseCount} evi goster</button>
           </div>
         </div>
       </div>
