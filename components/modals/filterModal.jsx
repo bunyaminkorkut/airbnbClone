@@ -387,7 +387,7 @@ export const FilterModal = () => {
         <div className="fixed bottom-0 font-semibold border-t relative align-center">
           <div className="h-full flex items-center justify-between w-[90%] mx-auto my-4">
             <button onClick={() => { deleteFilters() }} className="underline hover:bg-[#e0e0e0] px-4 py-2 rounded-lg ">Tümünü temizle</button>
-            <button className=" px-6 py-3 rounded-lg bg-[#222222] hover:bg-black text-white font-semibold ">{houseCount} evi goster</button>
+            <button onClick={toggleFilterModal} className=" px-6 py-3 rounded-lg bg-[#222222] hover:bg-black text-white font-semibold ">{houseCount} evi goster</button>
           </div>
         </div>
       </div>
