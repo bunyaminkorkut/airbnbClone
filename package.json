@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"tailwindcss --input ./app/globals.css --output ./app/output.css --watch\"",
+    "dev": "next dev",
     "dev:tailwind": "concurrently \"next dev --turbo\" \"npm run tailwind -- --watch\"",
     "build":"tailwindcss ./styles/globals.css --output ./app/output.css && next build",
     "start": "next start",

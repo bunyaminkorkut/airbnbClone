@@ -44,7 +44,7 @@ export const RegisterModal = () => {
               <button onClick={toggleRegisterModal} className="absolute left-0">
                 <FaTimes />
               </button>
-              <h3>Oturum açın</h3>
+              <h3>Kayit Olun</h3>
             </div>
           </div>
         </div>

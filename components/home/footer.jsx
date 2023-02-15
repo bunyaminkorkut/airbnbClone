@@ -1,11 +1,12 @@
 import { BsChevronUp, BsGlobe } from "react-icons/bs"
+import { MobileFooter } from "./mobileFooter"
 
 export const Footer = () => {
 
 
   return (
-    <div className="h-[47px] fixed bottom-0 bg-gray-100 border-t w-[100vw]">
-      <div className="md:w-[88%] flex justify-between items-center h-full mx-auto xl:w-[90%]">
+    <div className="md:h-[47px] h-16 fixed  bottom-0 bg-white md:bg-gray-100 border-t w-[100vw]">
+      <div className="md:w-[88%] justify-between items-center h-full mx-auto xl:w-[90%] md:flex hidden">
         <div className="text-sm flex gap-1">
           <span>
             &copy;2023 Airbnb, Inc.
@@ -34,6 +35,9 @@ export const Footer = () => {
             </div>
           </a>
         </div>
+      </div>
+      <div className="md:hidden h-full my-auto">
+            <MobileFooter />
       </div>
     </div>
   )
